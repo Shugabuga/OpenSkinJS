@@ -100,10 +100,8 @@ function OpenSkin() {
 
     // Custom CSS
     try {
-      element += sanCustom(jsonContents.styles[0].custom[0][jsonAppName])
-    } catch(n) {
-      //
-    }
+      element += OpenSkin_jsonContents.styles[0].custom[0][OpenSkin_jsonAppName]
+    } catch(n) {}
 
     if(document.getElementById("openskin_stylesheet")) {
       document.getElementById("openskin_stylesheet").innerHTML = element;
