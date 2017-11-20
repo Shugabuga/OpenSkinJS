@@ -1,0 +1,42 @@
+{
+  "name": "Skin Name",
+  "description": "Briefly describe the skin.",
+  "preview": "https://example.com/preview.png",
+  "logo": "https://example.com/icon.png",
+  "author": "Author Name",
+  "styles": [
+    {
+      "header": "background-color:red; color:white;",
+      "label": "background-color:red; color:white;",
+      "button": "background-color:red; color:white;",
+      "roundedButton": "background-color:red; color:white;",
+      "alert": "background-color:red; color:white;",
+      "containerBackground": "background-color:red; color:white;",
+      "cell": "background-color:red; color:white;",
+      "cellChevron": "background-color:red; color:white;",
+      "toolbar": "background-color:red; color:white;",
+      "igba": [
+        {
+          "emulatorBackground": "background-color: red; color: white;",
+          "triggerL": "background-color: red; color: white;",
+          "triggerR": "background-color: red; color: white;",
+          "center": "background-color: red; color: white;",
+          "right": "background-color: red; color: white;",
+          "left": "background-color: red; color: white;",
+          "up": "background-color: red; color: white;",
+          "down": "background-color: red; color: white;",
+          "aBtn": "background-color: red; color: white;",
+          "bBtn": "background-color: red; color: white;",
+          "startBtn": "background-color: red; color: white;",
+          "select": "background-color: red; color: white;"
+        }
+      ],
+      "custom": [
+        {
+          "igba": ".igba {background-color: red; color: white;}",
+          "ines": ".headerContainer {background-color: red; color: white;}"
+        }
+      ]
+    }
+  ]
+}
