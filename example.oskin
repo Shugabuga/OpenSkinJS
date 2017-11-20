@@ -18,6 +18,7 @@
       "igba": [
         {
           "emulatorBackground": "background-color: red; color: white;",
+          "emulatorScreen": "background-color: red; color: white;",
           "triggerL": "background-color: red; color: white;",
           "triggerR": "background-color: red; color: white;",
           "center": "background-color: red; color: white;",
