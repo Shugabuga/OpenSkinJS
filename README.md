@@ -18,7 +18,7 @@ To set up OpenSkin in your project, add the following towards the end of the pag
 ```html
 <!-- OpenSkin -->
 <script>var openskin = "appName"</script>
-<script src="openskin.js"></script>
+<script src="openskin.min.js"></script>
 <!-- /OpenSkin -->
 ```
 
