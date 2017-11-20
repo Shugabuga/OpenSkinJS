@@ -2,7 +2,11 @@
 console.log("[OpenSkin] Loading application \"" + openskin + "\"");
 
 function sanLite(str) {
-  str = String(str).replace(/undefined|nil|null|\<|\>/g,"");
+  str = String(str).replace(/undefined|nil|null|\<|\>|\{|\}/g,"");
+  return str;
+}
+function sanCustom(str) {
+  str = String(str).replace(/undefined|nil|null/g,"");
   return str;
 }
 
@@ -96,7 +100,7 @@ function OpenSkin() {
 
     // Custom CSS
     try {
-      element += jsonContents.styles[0].custom[0][jsonAppName]
+      element += sanCustom(jsonContents.styles[0].custom[0][jsonAppName])
     } catch(n) {
       //
     }
