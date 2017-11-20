@@ -24,6 +24,10 @@ To set up OpenSkin in your project, add the following towards the end of the pag
 
 Make sure to replace `appName` with your web app's name. This is used for skin developers to fine-tune their skins for your site.
 
+## Skin Designers
+
+If you are a skin designer, use `example.oskin` to assist in making new skins. Please refer to the specific application for properties that might be used for said application, on top of the defaults.
+
 ## Usage
 
 ### Fetching the Skin
