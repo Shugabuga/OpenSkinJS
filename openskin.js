@@ -39,7 +39,10 @@ function OpenSkin() {
    // import via remote JSON file
    // duplicate of this.get so removing!
    this.getJson = function(url) { this.get(url) }
-   
+   this.getStr = function(str) {
+     OpenSkin_jsonContents = JSON.parse(str);
+     return OpenSkin_jsonContents;
+    }
    // import via object
    this.getObj = function(str) {
     OpenSkin_jsonContents = str;
