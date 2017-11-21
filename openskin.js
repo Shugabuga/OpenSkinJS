@@ -120,4 +120,4 @@ function OpenSkin() {
     return OpenSkin_jsonContents;
   }
 }
-var OpenSkin = new OpenSkin()
+var OpenSkin = new OpenSkin();
