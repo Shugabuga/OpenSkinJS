@@ -18,29 +18,31 @@ function OpenSkin() {
   // default: remote JSON file [requires JQuery]
   this.get = function(url) {
     this.json = OpenSkin_jsonContents;
-      $.getJSON(url, function(json) {
-        OpenSkin_jsonContents = json;
-        return json;
-      });
+      var r1 = new XMLHttpRequest();
+      request.open('GET', url, true);
+      request.onload = function() {
+      request.onerror = function() {
+        throw "Invalid URL."
+      };
+      if (request.status >= 200 && request.status < 400) {
+      //Realizing you can just use that...
+      OpenSkin_jsonContents = JSON.parse(request.responseText);
+      } else {
+        throw "Can't access data."
+      }
+      request.send();
+      //aaaah
       return OpenSkin_jsonContents;
-   }
+    };
+    
   
-  // import via remote JSON file [requires JQuery]
-  this.getJSON = function(url) {
-    this.json = OpenSkin_jsonContents;
-      $.getJSON(url, function(json) {
-        OpenSkin_jsonContents = json;
-        return json;
-      });
-      return OpenSkin_jsonContents;
-   }
-   
-   // import via local string
+   // import via remote JSON file
+   // duplicate of this.get so removing!
+   this.getJson = function(url) { this.get(url) }
    this.getStr = function(str) {
-    OpenSkin_jsonContents = JSON.parse(str);
-    return OpenSkin_jsonContents;
-   }
-   
+     OpenSkin_jsonContents = JSON.parse(str);
+     return OpenSkin_jsonContents;
+    }
    // import via object
    this.getObj = function(str) {
     OpenSkin_jsonContents = str;
@@ -118,4 +120,4 @@ function OpenSkin() {
     return OpenSkin_jsonContents;
   }
 }
-var OpenSkin = new OpenSkin()
+var OpenSkin = new OpenSkin();
