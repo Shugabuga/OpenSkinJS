@@ -16,7 +16,7 @@ function OpenSkin() {
   this.application = openskin
 
   // default: remote JSON file
-  this.get = function(url) {
+  this.get = function(url, loadAfter) {
     var request = new XMLHttpRequest();
     request.open('GET', url, true);
     request.send();
@@ -29,6 +29,9 @@ function OpenSkin() {
         } else {
             throw "Can't access data."
         }
+        if(loadAfter == true) {
+            OpenSkin.load()
+        }
         return OpenSkin_jsonContents;
         }
     }
@@ -36,17 +39,23 @@ function OpenSkin() {
   
    // import via remote JSON file
    // duplicate of this.get so removing!
-    this.getJSON = function(url) { 
-        this.get(url);
+    this.getJSON = function(url, loadAfter) { 
+        this.get(url, loadAfter);
         return OpenSkin_jsonContents;
     }
-   this.getStr = function(str) {
+   this.getStr = function(str, loadAfter) {
      OpenSkin_jsonContents = JSON.parse(str);
+     if(loadAfter == true) {
+        this.load()
+     }
      return OpenSkin_jsonContents;
     }
    // import via object
-   this.getObj = function(str) {
+   this.getObj = function(str, loadAfter) {
     OpenSkin_jsonContents = str;
+    if(loadAfter == true) {
+        this.load()
+    }
     return OpenSkin_jsonContents;
    }
 
