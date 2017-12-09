@@ -1,4 +1,4 @@
-# OpenSkinJS
+# OpenSkinJS *for Framework7*
 ![](https://raw.githubusercontent.com/Shugabuga/OpenSkinJS/master/OpenSkin.png)
 
 *OpenSkin: The Flexible and Open Skin Format*
@@ -9,7 +9,7 @@ OpenSkin is a proposed file format based off of the JSON syntax that will ([try 
 
 ## The Library
 
-OpenSkinJS is a library designed for developers to easily take advantage of OpenSkin-formatted skins with little effort, especially for [Framework7](http://framework7.io) web applications. It will take the skin file (as an object, JSON string, or a remote file (given it doesn't violate cross-site restrictions and JQuery is loaded)) and allow for it to be loaded into the DOM, as well as the ability to work with the skin's metadata (like name and description).
+OpenSkinJS is a library designed for developers to easily take advantage of OpenSkin-formatted skins with little effort, especially for [Framework7](http://framework7.io)-based web applications. It will take the skin file (as an object, JSON string, or a remote file (given it doesn't violate cross-site restrictions and JQuery is loaded)) and allow for it to be loaded into the DOM, as well as the ability to work with the skin's metadata (like name and description).
 
 ## Setup
 
@@ -32,15 +32,17 @@ If you are a skin designer, use `example.oskin` to assist in making new skins. P
 
 ### Fetching the Skin
 
-`OpenSkin.getJSON(url)`: Loads a skin from a given `url` (requires JQuery + for files to be loaded from the same domain)
+`OpenSkin.getJSON(url, loadAfter)`: Loads a skin from a given `url` (most browsers require that files have to be loaded from the same domain for security purposes)
 
-`OpenSkin.getStr(json)`: Takes a string of JSON (passed as `json`) and loads it
+`OpenSkin.getStr(json, loadAfter)`: Takes a string of JSON (passed as `json`) and loads it
 
-`OpenSkin.getObj(object)`: Takes an already-parsed object and loads it
+`OpenSkin.getObj(object, loadAfter)`: Takes an already-parsed object and loads it
 
 ### Applying the Skin
 
 `OpenSkin.load()`: Applies the skin.
+
+The `loadAfter` boolean in the fetch methods, when set to true, will apply the skin after the skin is loaded.
 
 ### Skin API
 
