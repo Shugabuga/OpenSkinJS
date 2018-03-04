@@ -35,7 +35,7 @@
       "custom": [
         {
           "igba": ".igba {background-color: red; color: white;}",
-          "ines": ".headerContainer {background-color: red; color: white;}"
+          "eclipse": ".headerContainer {background-color: red; color: white;}"
         }
       ]
     }
