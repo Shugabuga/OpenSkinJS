@@ -1,5 +1,5 @@
-// OpenSkinJS (c) HeyItsShuga. Licensed under MIT.
-console.log("[OpenSkin] Loading application \"" + openskin + "\"");
+// OpenSkinJS v2.0.0 (c) HeyItsShuga. Licensed under MIT.
+console.log("%c[OpenSkin] %c Loading application \"" + openskin + "\"", "color:#358311", "color: gray");
 
 function sanLite(str) {
   str = String(str).replace(/undefined|nil|null|\<|\>|\{|\}/g,"");
@@ -62,52 +62,98 @@ function OpenSkin() {
   this.load = function() {
     var element = "";
 
-    element += ".navbar {" + sanLite(OpenSkin_jsonContents.styles[0].header) + ";" + "}";
-    element += "body {" + sanLite(OpenSkin_jsonContents.styles[0].label) + "}";
+    element += ".navbar, .navbar-inner, .searchbar, .ios .navbar .title {" + sanLite(OpenSkin_jsonContents.styles[0].header) + ";" + "}";
+    element += ".md .navbar-inner, .md {" + sanLite(OpenSkin_jsonContents.styles[0].mdHeader) + ";" + "}";
+    element += ".md .tabBar{" + sanLite(OpenSkin_jsonContents.styles[0].navbar) + ";" + "}";
+    element += ".ios .icon:not(.fab-ico):not(.ico-colored-bkg), .ico-white-bkg {" + sanLite(OpenSkin_jsonContents.styles[0].iOSicon) + ";" + "}";
+    element += ".md .icon:not(.fab-ico):not(.ico-white-bkg):not(.color-black):not(.actions-button-media>i), .ico-colored-bkg {" + sanLite(OpenSkin_jsonContents.styles[0].MDicon) + ";" + "}";
+
+    element += ".md .tab-link:not(.tab-link-active) :not(.fab-ico), .md .tab-link:not(.tab-link-active) :not(.fab-ico) > i {" + sanLite(OpenSkin_jsonContents.styles[0].MDoutOfFocus) + ";" + "}";
+    element += ".ios .tab-link:not(.tab-link-active) :not(.fab-ico), .ios .tab-link:not(.tab-link-active) :not(.fab-ico) > i {" + sanLite(OpenSkin_jsonContents.styles[0].iOSoutOfFocus) + ";" + "}";
+    element += ".md .tab-link-active > span {" + sanLite(OpenSkin_jsonContents.styles[0].MDinFocus) + ";" + "}";
+    element += ".ios .tab-link-active > span {" + sanLite(OpenSkin_jsonContents.styles[0].iOSinFocus) + ";" + "}";
+    element += ".md .color-theme-red .toggle input[type=checkbox]:checked+.toggle-icon:after {" + sanLite(OpenSkin_jsonContents.styles[0].MDtoggleHead) + ";" + "}";
+    element += ".md .color-theme-red .toggle input[type=checkbox]:checked+.toggle-icon {" + sanLite(OpenSkin_jsonContents.styles[0].MDtoggleBody) + ";" + "}";
+    element += ".ios .toggle-icon:after {" + sanLite(OpenSkin_jsonContents.styles[0].iOStoggleHead) + ";" + "}";
+    element += ".ios .toggle input[type=checkbox]:checked+.toggle-icon {" + sanLite(OpenSkin_jsonContents.styles[0].iOStoggleBody) + ";" + "}";
+    element += ".fabCircle {" + sanLite(OpenSkin_jsonContents.styles[0].fab) + ";" + "}";
+    element += ".back > span, .back > div, .ios .searchbar-disable-button {" + sanLite(OpenSkin_jsonContents.styles[0].tint) + ";" + "}";
+    try { // Back arrow: create svg to go with given color value. Potentially unstable.
+        color = sanLite(OpenSkin_jsonContents.styles[0].tint).replace("!important","").replace(" ","");
+        color = /color:?(.*)(;|$)?/g.exec(color)[1].replace(";","");
+        svgCode = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 12 20\"><path d=\"M10,0l2,2l-8,8l8,8l-2,2L0,10L10,0z\" fill=\"" + color + "\"/></svg>";
+        element += ".ios i.icon.icon-back {background-image: url('data:image/svg+xml;utf8," + svgCode + "')!important}";
+    } catch(err) {}
+
+    element += "body, text.card-footer-inner-text, div.card-footer-inner-text {" + sanLite(OpenSkin_jsonContents.styles[0].label) + "}";
     element += ".list-button, .button, .active {" + sanLite(OpenSkin_jsonContents.styles[0].button) + "}";
     element += ".modal {" + sanLite(OpenSkin_jsonContents.styles[0].alert) + "}";
-    element += ".page-content {" + sanLite(OpenSkin_jsonContents.styles[0].containerBackground) + "}";
-    element += ".item-content, .card, .swiper-slide {" + sanLite(OpenSkin_jsonContents.styles[0].cell) + "}";
+    element += ".page-content, .card, #games-list>.row {" + sanLite(OpenSkin_jsonContents.styles[0].containerBackground) + "}";
+    element += ".item-content, .inset>ul>div>div>a>.card, .swiper-slide, .list, .inset, .list.inset>ul>div.row, .div.block.inset {" + sanLite(OpenSkin_jsonContents.styles[0].cell) + "}";
     element += ".item-after {" + sanLite(OpenSkin_jsonContents.styles[0].cellChevron) + "}";
     element += ".toolbar {" + sanLite(OpenSkin_jsonContents.styles[0].toolbar) + "}";
+    element += ".block-title {" + sanLite(OpenSkin_jsonContents.styles[0].cellGroupTitle) + "}";
     // iGBA methods are officially in the OpenSkin spec.
-    element += "#emulatorPopup {" + sanLite(OpenSkin_jsonContents.styles[0].emulatorBackground) + ";" + "}";
+    element += "#emulatorPopup, .popup-emu, .emulator-view {" + sanLite(OpenSkin_jsonContents.styles[0].emulatorBackground) + ";" + "}";
     element += "#emulatorTarget {" + sanLite(OpenSkin_jsonContents.styles[0].emulatorScreen) + ";" + "}";
-    element += "#triggerL {" + sanLite(OpenSkin_jsonContents.styles[0].triggerL) + "}";
-    element += "#triggerR {" + sanLite(OpenSkin_jsonContents.styles[0].triggerR) + "}";
-    element += "#center {" + sanLite(OpenSkin_jsonContents.styles[0].center) + "}";
-    element += "#right {" + sanLite(OpenSkin_jsonContents.styles[0].right) + "}";
-    element += "#left {" + sanLite(OpenSkin_jsonContents.styles[0].left) + "}";
-    element += "#up {" + sanLite(OpenSkin_jsonContents.styles[0].up) + "}";
-    element += "#down {" + sanLite(OpenSkin_jsonContents.styles[0].down) + "}";
-    element += "#aBtn {" + sanLite(OpenSkin_jsonContents.styles[0].aBtn) + "}";
-    element += "#bBtn {" + sanLite(OpenSkin_jsonContents.styles[0].bBtn) + "}";
-    element += "#startbtn {" + sanLite(OpenSkin_jsonContents.styles[0].startBtn) + "}";
-    element += "#select {" + sanLite(OpenSkin_jsonContents.styles[0].select) + "}";
+    element += "#triggerL, .button-l {" + sanLite(OpenSkin_jsonContents.styles[0].triggerL) + "}";
+    element += "#triggerR, .button-r {" + sanLite(OpenSkin_jsonContents.styles[0].triggerR) + "}";
+    element += "#center, .arrow-button-centerr {" + sanLite(OpenSkin_jsonContents.styles[0].center) + "}";
+    element += "#right, .arrow-button-right {" + sanLite(OpenSkin_jsonContents.styles[0].right) + "}";
+    element += "#left, .arrow-button-left {" + sanLite(OpenSkin_jsonContents.styles[0].left) + "}";
+    element += "#up, .arrow-button-up {" + sanLite(OpenSkin_jsonContents.styles[0].up) + "}";
+    element += "#down, .arrow-button-down {" + sanLite(OpenSkin_jsonContents.styles[0].down) + "}";
+    element += "#aBtn, .button-a {" + sanLite(OpenSkin_jsonContents.styles[0].aBtn) + "}";
+    element += "#bBtn, .button-b {" + sanLite(OpenSkin_jsonContents.styles[0].bBtn) + "}";
+    element += "#startbtn, .menu-button-start {" + sanLite(OpenSkin_jsonContents.styles[0].startBtn) + "}";
+    element += "#select, .menu-button-select {" + sanLite(OpenSkin_jsonContents.styles[0].select) + "}";
 
     if(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName]) {
-      element += ".navbar {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].header) + ";" + "}";
-      element += "body {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].label) + "}";
+      element += ".navbar, .navbar-inner, .searchbar, .ios .navbar .title {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].header) + ";" + "}";
+      element += ".md .navbar-inner, .md {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].mdHeader) + ";" + "}";
+      element += ".md .tabBar {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].navbar) + ";" + "}";
+      element += ".ios .icon:not(.fab-ico):not(.ico-colored-bkg), .ico-white-bkg  {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].iOSicon) + ";" + "}";
+      element += ".md .icon:not(.fab-ico):not(.ico-white-bkg):not(.color-black):not(.actions-button-media>i), .ico-colored-bkg   {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].MDicon) + ";" + "}";
+
+      element += ".md .tab-link:not(.tab-link-active) :not(.fab-ico), .md .tab-link:not(.tab-link-active) :not(.fab-ico) > i {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].MDoutOfFocus) + ";" + "}";
+      element += ".ios .tab-link:not(.tab-link-active) :not(.fab-ico), .ios .tab-link:not(.tab-link-active) :not(.fab-ico) > i {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].iOSoutOfFocus) + ";" + "}";
+      element += ".md .tab-link-active > span {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].MDinFocus) + ";" + "}";
+      element += ".ios .tab-link-active > span {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].iOSinFocus) + ";" + "}";
+      element += ".md .color-theme-red .toggle input[type=checkbox]:checked+.toggle-icon:after {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].MDtoggleHead) + ";" + "}";
+      element += ".md .color-theme-red .toggle input[type=checkbox]:checked+.toggle-icon {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].MDtoggleBody) + ";" + "}";
+      element += ".ios .toggle-icon:after {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].iOStoggleHead) + ";" + "}";
+      element += ".ios .toggle input[type=checkbox]:checked+.toggle-icon {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].iOStoggleBody) + ";" + "}";
+      element += ".fabCircle {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].fab) + ";" + "}";
+      element += ".back > span, .back > div, .ios .searchbar-disable-button {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].tint) + ";" + "}";
+      try { // Back arrow: create svg to go with given color value. Potentially unstable.
+         color = sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].tint).replace("!important","").replace(" ","");
+         color = /color:?(.*)(;|$)?/g.exec(color)[1].replace(";","");
+         svgCode = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 12 20\"><path d=\"M10,0l2,2l-8,8l8,8l-2,2L0,10L10,0z\" fill=\"" + color + "\"/></svg>";
+         element += ".ios i.icon.icon-back {background-image: url('data:image/svg+xml;utf8," + svgCode + "')!important}";
+      } catch(err) {}
+
+      element += "body, text.card-footer-inner-text, div.card-footer-inner-text {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].label) + "}";
       element += ".list-button, .button, .active {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].button) + "}";
       element += ".modal {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].alert) + "}";
-      element += ".page-content {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].containerBackground) + "}";
-      element += ".item-content, .card, .swiper-slide {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].cell) + "}";
+      element += ".page-content, .card, #games-list>.row {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].containerBackground) + "}";
+      element += ".item-content, .inset>ul>div>div>a>.card, .swiper-slide, .list, .inset, .list.inset>ul>div.row, .div.block.inset {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].cell) + "}";
       element += ".item-after {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].cellChevron) + "}";
       element += ".toolbar {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].toolbar) + "}";
+      element += ".block-title {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].cellGroupTitle) + "}";
       // iGBA methods are officially in the OpenSkin spec.
-      element += "#emulatorPopup {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].emulatorBackground) + ";" + "}";
+      element += "#emulatorPopup, .popup {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].emulatorBackground) + ";" + "}";
       element += "#emulator_target {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].emulatorScreen) + ";" + "}";
-      element += "#triggerL {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].triggerL) + "}";
-      element += "#triggerR {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].triggerR) + "}";
-      element += "#center {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].center) + "}";
-      element += "#right {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].right) + "}";
-      element += "#left {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].left) + "}";
-      element += "#up {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].up) + "}";
-      element += "#down {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].down) + "}";
-      element += "#aBtn {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].aBtn) + "}";
-      element += "#bBtn {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].bBtn) + "}";
-      element += "#startbtn {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].startBtn) + "}";
-      element += "#select {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].select) + "}";
+      element += "#triggerL, .button-l {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].triggerL) + "}";
+      element += "#triggerR, .button-r {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].triggerR) + "}";
+      element += "#center, .arrow-button-centerr {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].center) + "}";
+      element += "#right, .arrow-button-right {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].right) + "}";
+      element += "#left, .arrow-button-left {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].left) + "}";
+      element += "#up, .arrow-button-up {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].up) + "}";
+      element += "#down, .arrow-button-down {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].down) + "}";
+      element += "#aBtn, .button-a {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].aBtn) + "}";
+      element += "#bBtn, .button-b {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].bBtn) + "}";
+      element += "#startbtn, .menu-button-start {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].startBtn) + "}";
+      element += "#select, .menu-button-select {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].select) + "}";
     }
 
     // Custom CSS
