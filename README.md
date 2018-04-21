@@ -5,7 +5,7 @@
 
 ## Introduction
 
-OpenSkin is a proposed file format based off of the JSON syntax that will ([try to](https://xkcd.com/927/)) make a standardized format for application theming. It is based off of the skin format of web-based GameBoy Advance emulator [iGBA](https://igbemu.com), but expanded to be used for non-emulators and to enrich the capabilities of their theming system, as it is quite limited in its standard state.
+OpenSkin is a proposed file format based off of the JSON syntax that will ([try to](https://xkcd.com/927/)) make a standardized format for application theming. It is based off of the skin format of web-based GameBoy Advance emulator [iGBA (now Eclipse)](https://eclipseemu.me), but expanded to be used for non-emulators and to enrich the capabilities of their theming system, as it was quite limited in its standard state.
 
 ## The Library
 
@@ -22,7 +22,7 @@ To set up OpenSkin in your project, add the following towards the end of the pag
 <!-- /OpenSkin -->
 ```
 
-Make sure to replace `appName` with your web app's name. This is used for skin developers to fine-tune their skins for your site.
+Make sure to replace `appName` with your web app's name. This is used for skin developers to fine-tune their skins for your site (if needed).
 
 ## Skin Designers
 
