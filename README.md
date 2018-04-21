@@ -9,7 +9,7 @@ OpenSkin is a proposed file format based off of the JSON syntax that will ([try 
 
 ## The Library
 
-OpenSkinJS is a library designed for developers to easily take advantage of OpenSkin-formatted skins with little effort, especially for [Framework7](http://framework7.io)-based web applications. It will take the skin file (as an object, JSON string, or a remote file (given it doesn't violate cross-site restrictions and JQuery is loaded)) and allow for it to be loaded into the DOM, as well as the ability to work with the skin's metadata (like name and description).
+OpenSkinJS is a library designed for developers to easily take advantage of OpenSkin-formatted skins with little effort, especially for [Framework7](http://framework7.io)-based web applications. It will take the skin file (as an object, JSON string, or a remote file (given it doesn't violate cross-site restrictions)) and allow for it to be loaded into the DOM, as well as the ability to work with the skin's metadata (like name and description).
 
 ## Setup
 
