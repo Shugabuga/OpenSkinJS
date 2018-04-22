@@ -1,4 +1,4 @@
-// OpenSkinJS v2.1.1 (c) HeyItsShuga. Licensed under MIT.
+// OpenSkinJS v2.1.2 (c) HeyItsShuga. Licensed under MIT.
 console.log("%c[OpenSkin] %c Loading application \"" + openskin + "\"", "color:#358311", "color: gray");
 
 function sanLite(str) {
@@ -108,7 +108,7 @@ function OpenSkin() {
     element += "#startbtn, .menu-button-start {" + sanLite(OpenSkin_jsonContents.styles[0].startBtn) + "}";
     element += "#select, .menu-button-select {" + sanLite(OpenSkin_jsonContents.styles[0].select) + "}";
     element += ".ios .searchbar, .searchbar-input-wrap>input {" + sanLite(OpenSkin_jsonContents.styles[0].searchbar) + "}";
-    element += ".ios .navbar:after, .ios .subnavbar:after, .ios .toolbar:before, .ios .list:before, .ios .list ul:before, .ios .list:after, .ios .list ul:after, .ios .searchbar:after, .ios .list .item-inner:after .ios .list .list-button:after, .ios .list. .item-divider:after, .ios .list .list-group-title:after, .ios .list .list-group-title:after {" + sanLite(OpenSkin_jsonContents.styles[0].hairlines) + "}";
+    element += ".ios .list .item-divider:after,.ios .list .item-inner:after,.ios .list .list-button:after,.ios .list .list-group-title:after,.ios .list ul:after,.ios .list ul:before,.ios .list:after,.ios .list:before,.ios .navbar:after,.ios .searchbar:after,.ios .subnavbar:after,.ios .toolbar:before {" + sanLite(OpenSkin_jsonContents.styles[0].hairlines) + "}";
 
     if(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName]) {
       element += ".navbar, .navbar-inner, .searchbar, .ios .navbar .title {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].header) + ";" + "}";
@@ -157,7 +157,7 @@ function OpenSkin() {
       element += "#startbtn, .menu-button-start {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].startBtn) + "}";
       element += "#select, .menu-button-select {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].select) + "}";
       element += ".ios .searchbar, .searchbar-input-wrap>input {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].searchbar) + "}";
-      element += ".ios .navbar:after, .ios .subnavbar:after, .ios .toolbar:before, .ios .list:before, .ios .list ul:before, .ios .list:after, .ios .list ul:after, .ios .searchbar:after, .ios .list .item-inner:after .ios .list .list-button:after, .ios .list. .item-divider:after, .ios .list .list-group-title:after, .ios .list .list-group-title:after {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].hairlines) + "}";
+      element += ".ios .list .item-divider:after,.ios .list .item-inner:after,.ios .list .list-button:after,.ios .list .list-group-title:after,.ios .list ul:after,.ios .list ul:before,.ios .list:after,.ios .list:before,.ios .navbar:after,.ios .searchbar:after,.ios .subnavbar:after,.ios .toolbar:before {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].hairlines) + "}";
 
     }
 
