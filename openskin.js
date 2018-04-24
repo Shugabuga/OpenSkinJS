@@ -1,4 +1,4 @@
-// OpenSkinJS v2.1.3 (c) HeyItsShuga. Licensed under MIT.
+// OpenSkinJS v2.1.4 (c) HeyItsShuga. Licensed under MIT.
 console.log("%c[OpenSkin] %c Loading application \"" + openskin + "\"", "color:#358311", "color: gray");
 
 function sanLite(str) {
@@ -62,7 +62,7 @@ function OpenSkin() {
   this.load = function() {
     var element = "";
 
-    element += ".navbar, .navbar-inner, .searchbar, .ios .navbar .title {" + sanLite(OpenSkin_jsonContents.styles[0].header) + ";" + "}";
+    element += ".subnavbar, .navbar, .navbar-inner, .searchbar, .ios .navbar .title {" + sanLite(OpenSkin_jsonContents.styles[0].header) + ";" + "}";
     element += ".md .navbar-inner, .md {" + sanLite(OpenSkin_jsonContents.styles[0].mdHeader) + ";" + "}";
     element += ".md .tabBar{" + sanLite(OpenSkin_jsonContents.styles[0].navbar) + ";" + "}";
     element += ".ios .icon:not(.fab-ico):not(.ico-colored-bkg), .ico-white-bkg {" + sanLite(OpenSkin_jsonContents.styles[0].iOSicon) + ";" + "}";
@@ -111,7 +111,7 @@ function OpenSkin() {
     element += ".ios .list .item-divider:after,.ios .list .item-inner:after,.ios .list .list-button:after,.ios .list .list-group-title:after,.ios .list ul:after,.ios .list ul:before,.ios .list:after,.ios .list:before,.ios .navbar:after,.ios .searchbar:after,.ios .subnavbar:after,.ios .toolbar:before {" + sanLite(OpenSkin_jsonContents.styles[0].hairlines) + "}";
 
     if(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName]) {
-      element += ".navbar, .navbar-inner, .searchbar, .ios .navbar .title {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].header) + ";" + "}";
+      element += ".subnavbar, .navbar, .navbar-inner, .searchbar, .ios .navbar .title {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].header) + ";" + "}";
       element += ".md .navbar-inner, .md {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].mdHeader) + ";" + "}";
       element += ".md .tabBar {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].navbar) + ";" + "}";
       element += ".ios .icon:not(.fab-ico):not(.ico-colored-bkg), .ico-white-bkg  {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].iOSicon) + ";" + "}";
