@@ -1,4 +1,4 @@
-// OpenSkinJS v2.1.4 (c) HeyItsShuga. Licensed under MIT.
+// OpenSkinJS v2.1.5 (c) HeyItsShuga. Licensed under MIT.
 console.log("%c[OpenSkin] %c Loading application \"" + openskin + "\"", "color:#358311", "color: gray");
 
 function sanLite(str) {
@@ -77,7 +77,7 @@ function OpenSkin() {
     element += ".ios .toggle-icon:after {" + sanLite(OpenSkin_jsonContents.styles[0].iOStoggleHead) + ";" + "}";
     element += ".ios .toggle input[type=checkbox]:checked+.toggle-icon {" + sanLite(OpenSkin_jsonContents.styles[0].iOStoggleBody) + ";" + "}";
     element += ".fabCircle {" + sanLite(OpenSkin_jsonContents.styles[0].fab) + ";" + "}";
-    element += ".back > span, .back > div, .ios .searchbar-disable-button {" + sanLite(OpenSkin_jsonContents.styles[0].tint) + ";" + "}";
+    element += ".back > span, .back > div, .ios .searchbar-disable-button, .tint, .span.ios-only {" + sanLite(OpenSkin_jsonContents.styles[0].tint) + ";" + "}";
     try { // Back arrow: create svg to go with given color value. Potentially unstable.
         color = sanLite(OpenSkin_jsonContents.styles[0].tint).replace("!important","").replace(" ","");
         color = /color:?(.*)(;|$)?/g.exec(color)[1].replace(";","");
@@ -126,7 +126,7 @@ function OpenSkin() {
       element += ".ios .toggle-icon:after {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].iOStoggleHead) + ";" + "}";
       element += ".ios .toggle input[type=checkbox]:checked+.toggle-icon {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].iOStoggleBody) + ";" + "}";
       element += ".fabCircle {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].fab) + ";" + "}";
-      element += ".back > span, .back > div, .ios .searchbar-disable-button {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].tint) + ";" + "}";
+      element += ".back > span, .back > div, .ios .searchbar-disable-button, .tint, .span.ios-only {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].tint) + ";" + "}";
       try { // Back arrow: create svg to go with given color value. Potentially unstable.
          color = sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].tint).replace("!important","").replace(" ","");
          color = /color:?(.*)(;|$)?/g.exec(color)[1].replace(";","");
