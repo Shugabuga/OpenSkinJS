@@ -1,4 +1,4 @@
-// OpenSkinJS v2.1.5 (c) HeyItsShuga. Licensed under MIT.
+// OpenSkinJS v2.1.6 (c) HeyItsShuga. Licensed under MIT.
 console.log("%c[OpenSkin] %c Loading application \"" + openskin + "\"", "color:#358311", "color: gray");
 
 function sanLite(str) {
@@ -77,7 +77,7 @@ function OpenSkin() {
     element += ".ios .toggle-icon:after {" + sanLite(OpenSkin_jsonContents.styles[0].iOStoggleHead) + ";" + "}";
     element += ".ios .toggle input[type=checkbox]:checked+.toggle-icon {" + sanLite(OpenSkin_jsonContents.styles[0].iOStoggleBody) + ";" + "}";
     element += ".fabCircle {" + sanLite(OpenSkin_jsonContents.styles[0].fab) + ";" + "}";
-    element += ".back > span, .back > div, .ios .searchbar-disable-button, .tint, .span.ios-only {" + sanLite(OpenSkin_jsonContents.styles[0].tint) + ";" + "}";
+    element += ".back > span, .back > div, .ios .searchbar-disable-button, .tint, span.ios-only {" + sanLite(OpenSkin_jsonContents.styles[0].tint) + ";" + "}";
     try { // Back arrow: create svg to go with given color value. Potentially unstable.
         color = sanLite(OpenSkin_jsonContents.styles[0].tint).replace("!important","").replace(" ","");
         color = /color:?(.*)(;|$)?/g.exec(color)[1].replace(";","");
@@ -89,9 +89,10 @@ function OpenSkin() {
     element += ".list-button, .button, .active {" + sanLite(OpenSkin_jsonContents.styles[0].button) + "}";
     element += ".modal {" + sanLite(OpenSkin_jsonContents.styles[0].alert) + "}";
     element += ".page-content, .card, #games-list>.row {" + sanLite(OpenSkin_jsonContents.styles[0].containerBackground) + "}";
-    element += ".item-content, .inset>ul>div>div>a>.card, .swiper-slide, .list, .inset, .list.inset>ul>div.row, .div.block.inset {" + sanLite(OpenSkin_jsonContents.styles[0].cell) + "}";
+    element += "div.block-strong, .list>ul>li, .item-content, .inset>ul>div>div>a>.card, .swiper-slide, .list, .inset, .list.inset>ul>div.row, .div.block.inset {" + sanLite(OpenSkin_jsonContents.styles[0].cell) + "}";
     element += ".item-after {" + sanLite(OpenSkin_jsonContents.styles[0].cellChevron) + "}";
-    element += ".toolbar {" + sanLite(OpenSkin_jsonContents.styles[0].toolbar) + "}";
+    element += ".toolbar, .toolbar-inner {" + sanLite(OpenSkin_jsonContents.styles[0].toolbar) + "}";
+    element += ".md .toolbar, .md .toolbar-inner {" + sanLite(OpenSkin_jsonContents.styles[0].mdToolbar) + "}";
     element += ".block-title {" + sanLite(OpenSkin_jsonContents.styles[0].cellGroupTitle) + "}";
     // iGBA methods are officially in the OpenSkin spec.
     element += "#emulatorPopup, .popup-emu, .emulator-view {" + sanLite(OpenSkin_jsonContents.styles[0].emulatorBackground) + ";" + "}";
@@ -108,7 +109,7 @@ function OpenSkin() {
     element += "#startbtn, .menu-button-start {" + sanLite(OpenSkin_jsonContents.styles[0].startBtn) + "}";
     element += "#select, .menu-button-select {" + sanLite(OpenSkin_jsonContents.styles[0].select) + "}";
     element += ".searchbar-input-wrap>input {" + sanLite(OpenSkin_jsonContents.styles[0].searchbar) + "}";
-    element += ".ios .list .item-divider:after,.ios .list .item-inner:after,.ios .list .list-button:after,.ios .list .list-group-title:after,.ios .list ul:after,.ios .list ul:before,.ios .list:after,.ios .list:before,.ios .navbar:after,.ios .searchbar:after,.ios .subnavbar:after,.ios .toolbar:before {" + sanLite(OpenSkin_jsonContents.styles[0].hairlines) + "}";
+    element += ".ios .list .item-divider:after,.ios .list .item-inner:after,.ios .list .list-button:after,.ios .list .list-group-title:after,.ios .list ul:after,.ios .list ul:before,.ios .list:after,.ios .list:before,.ios .navbar:after,.ios .searchbar:after,.ios .subnavbar:after,.ios .toolbar:before, .ios .block-strong:before, .ios .block-strong:after, .ios .links-list a:after, .ios .links-list a:before {" + sanLite(OpenSkin_jsonContents.styles[0].hairlines) + "}";
 
     if(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName]) {
       element += ".subnavbar, .navbar, .navbar-inner, .searchbar, .ios .navbar .title {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].header) + ";" + "}";
@@ -126,7 +127,7 @@ function OpenSkin() {
       element += ".ios .toggle-icon:after {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].iOStoggleHead) + ";" + "}";
       element += ".ios .toggle input[type=checkbox]:checked+.toggle-icon {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].iOStoggleBody) + ";" + "}";
       element += ".fabCircle {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].fab) + ";" + "}";
-      element += ".back > span, .back > div, .ios .searchbar-disable-button, .tint, .span.ios-only {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].tint) + ";" + "}";
+      element += ".back > span, .back > div, .ios .searchbar-disable-button, .tint, span.ios-only {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].tint) + ";" + "}";
       try { // Back arrow: create svg to go with given color value. Potentially unstable.
          color = sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].tint).replace("!important","").replace(" ","");
          color = /color:?(.*)(;|$)?/g.exec(color)[1].replace(";","");
@@ -138,9 +139,10 @@ function OpenSkin() {
       element += ".list-button, .button, .active {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].button) + "}";
       element += ".modal {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].alert) + "}";
       element += ".page-content, .card, #games-list>.row {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].containerBackground) + "}";
-      element += ".item-content, .inset>ul>div>div>a>.card, .swiper-slide, .list, .inset, .list.inset>ul>div.row, .div.block.inset {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].cell) + "}";
+      element += "div.block-strong, .list>ul>li, .item-content, .inset>ul>div>div>a>.card, .swiper-slide, .list, .inset, .list.inset>ul>div.row, .div.block.inset {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].cell) + "}";
       element += ".item-after {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].cellChevron) + "}";
-      element += ".toolbar {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].toolbar) + "}";
+      element += ".toolbar, .toolbar-inner {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].toolbar) + "}";
+      element += ".md .toolbar, .md .toolbar-inner {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].mdToolbar) + "}";
       element += ".block-title {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].cellGroupTitle) + "}";
       // iGBA methods are officially in the OpenSkin spec.
       element += "#emulatorPopup, .popup {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].emulatorBackground) + ";" + "}";
@@ -157,7 +159,7 @@ function OpenSkin() {
       element += "#startbtn, .menu-button-start {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].startBtn) + "}";
       element += "#select, .menu-button-select {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].select) + "}";
       element += ".searchbar-input-wrap>input {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].searchbar) + "}";
-      element += ".ios .list .item-divider:after,.ios .list .item-inner:after,.ios .list .list-button:after,.ios .list .list-group-title:after,.ios .list ul:after,.ios .list ul:before,.ios .list:after,.ios .list:before,.ios .navbar:after,.ios .searchbar:after,.ios .subnavbar:after,.ios .toolbar:before {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].hairlines) + "}";
+      element += ".ios .list .item-divider:after,.ios .list .item-inner:after,.ios .list .list-button:after,.ios .list .list-group-title:after,.ios .list ul:after,.ios .list ul:before,.ios .list:after,.ios .list:before,.ios .navbar:after,.ios .searchbar:after,.ios .subnavbar:after,.ios .toolbar:before, .ios .block-strong:before, .ios .block-strong:after, .ios .links-list a:after, .ios .links-list a:before {" + sanLite(OpenSkin_jsonContents.styles[0][OpenSkin_jsonAppName][0].hairlines) + "}";
 
     }
 
