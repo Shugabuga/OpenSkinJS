@@ -1,7 +1,7 @@
 {
-  "name": "Skin Name",
-  "description": "Briefly describe the skin.",
-  "preview": "https://example.com/preview.png",
+  "Cool": "Cool Kid",
+  "I'm Cool": "Briefly describe the skin.",
+  "None": "https://example.com/preview.png",
   "logo": "https://example.com/icon.png",
   "author": "Author Name",
   "styles": [
@@ -17,19 +17,19 @@
       "toolbar": "background-color:red; color:white;",
       "igba": [
         {
-          "emulatorBackground": "background-color: red; color: white;",
-          "emulatorScreen": "background-color: red; color: white;",
-          "triggerL": "background-color: red; color: white;",
-          "triggerR": "background-color: red; color: white;",
-          "center": "background-color: red; color: white;",
-          "right": "background-color: red; color: white;",
-          "left": "background-color: red; color: white;",
-          "up": "background-color: red; color: white;",
-          "down": "background-color: red; color: white;",
-          "aBtn": "background-color: red; color: white;",
-          "bBtn": "background-color: red; color: white;",
-          "startBtn": "background-color: red; color: white;",
-          "select": "background-color: red; color: white;"
+          "emulatorBackground": "background-color: blue; color: white;",
+          "emulatorScreen": "background-color: blue; color: white;",
+          "triggerL": "background-color: blue; color: white;",
+          "triggerR": "background-color: blue; color: white;",
+          "center": "background-color: blue; color: white;",
+          "right": "background-color: blue; color: white;",
+          "left": "background-color: blue; color: white;",
+          "up": "background-color: blue; color: white;",
+          "down": "background-color: blue; color: white;",
+          "aBtn": "background-color: blue; color: white;",
+          "bBtn": "background-color: blue; color: white;",
+          "startBtn": "background-color: blue; color: white;",
+          "select": "background-color: blue; color: white;"
         }
       ],
       "custom": [
